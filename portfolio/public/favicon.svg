@@ -6,6 +6,5 @@
     </linearGradient>
   </defs>
   <rect width="100" height="100" rx="20" fill="url(#g)"/>
-  <!-- ===== REPLACE ME: Swap this for your own logo/initial ===== -->
-  <text x="50" y="68" font-family="system-ui, sans-serif" font-size="52" font-weight="700" fill="white" text-anchor="middle">YN</text>
+  <text x="50" y="68" font-family="system-ui, sans-serif" font-size="52" font-weight="700" fill="white" text-anchor="middle">IR</text>
 </svg>

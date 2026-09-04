@@ -1,187 +1,149 @@
 // =============================================================================
-// PORTFOLIO DATA — REPLACE ALL [REPLACE ME] VALUES WITH YOUR OWN INFO
-// This is the single source of truth. Edit this file to update the entire site.
+// PORTFOLIO DATA — Ipsita Roy
+// Single source of truth. Edit this file to update the entire site.
 // =============================================================================
 
 export const personalInfo = {
-  // ===== BASIC INFO =====
-  name: "[YOUR NAME]",                    // e.g. "Alex Chen"
-  role: "[YOUR ROLE]",                    // e.g. "Full-Stack Engineer"
-  tagline: "[ONE-LINE VALUE PROPOSITION]", // e.g. "Building performant web apps that scale to millions."
-  // Keep hero copy under 25 words — recruiters skim
+  name: "Ipsita Roy",
+  role: "ML / AI Engineer",
+  tagline:
+    "Building end-to-end ML applications that turn data into real-world impact.",
 
-  // ===== BIO (for About section, 3-4 sentences) =====
   bio: [
-    "I'm a [YOUR ROLE] with [X] years of experience building [WHAT YOU BUILD].",
-    "I specialize in [YOUR SPECIALTY] and love turning complex problems into elegant, user-friendly solutions.",
-    "When I'm not coding, you can find me [PERSONAL INTEREST].",
+    "I'm a B.Tech Computer Science (AI & ML) student at SRM Institute of Science and Technology with a 9.7 CGPA and hands-on experience building machine learning, NLP, and deep learning applications.",
+    "I specialize in Python, PyTorch, and scikit-learn — from data pipelines to deployed interfaces — and love turning complex AI problems into accessible, user-friendly tools.",
+    "When I'm not training models, you can find me competing in hackathons, contributing to open-source, or exploring the latest research in computer vision.",
   ],
 
-  // ===== QUICK FACTS (displayed in About section) =====
   quickFacts: [
-    { label: "Experience", value: "[X]+ Years" },       // e.g. "5+ Years"
-    { label: "Location", value: "[YOUR CITY]" },        // e.g. "San Francisco, CA"
-    { label: "Specialty", value: "[YOUR SPECIALTY]" },  // e.g. "React & Node.js"
-    { label: "Open to", value: "Remote / On-site" },
+    { label: "CGPA", value: "9.7 / 10" },
+    { label: "Location", value: "Chennai, India" },
+    { label: "Specialty", value: "ML, NLP & Deep Learning" },
+    { label: "Open to", value: "Internships / Entry-Level" },
   ],
 
-  // ===== CONTACT INFO =====
-  email: "[YOUR EMAIL]",               // e.g. "alex@example.com"
-  github: "https://github.com/[YOUR_GITHUB]",
-  linkedin: "https://linkedin.com/in/[YOUR_LINKEDIN]",
-  resumeUrl: "/resume.pdf",            // Place your resume PDF in public/resume.pdf
+  email: "ipshitaroy2007@gmail.com",
+  github: "https://github.com/IpsitaHQ",
+  linkedin: "https://www.linkedin.com/in/ipsitaroy7002",
+  resumeUrl: "/resume.pdf",
 
-  // ===== PHOTO (for About section) =====
-  // Place your photo in public/photo.jpg and update the path below
   photoUrl: "/photo.jpg",
-  photoAlt: "[YOUR NAME] headshot",
+  photoAlt: "Ipsita Roy headshot",
 };
 
 export const skills = [
-  // ===== LANGUAGES =====
   {
     category: "Languages",
     items: [
-      { name: "JavaScript", icon: "js" },
-      { name: "TypeScript", icon: "ts" },
       { name: "Python", icon: "python" },
-      { name: "HTML/CSS", icon: "html" },
-      // REPLACE ME: Add/remove your languages
+      { name: "C++", icon: "cpp" },
+      // REPLACE ME: Add more if needed
     ],
   },
-  // ===== FRAMEWORKS =====
   {
-    category: "Frameworks",
+    category: "ML / AI Frameworks",
     items: [
-      { name: "React", icon: "react" },
-      { name: "Next.js", icon: "nextjs" },
-      { name: "Node.js", icon: "nodejs" },
-      { name: "Tailwind CSS", icon: "tailwind" },
-      // REPLACE ME: Add/remove your frameworks
+      { name: "PyTorch", icon: "pytorch" },
+      { name: "scikit-learn", icon: "sklearn" },
+      { name: "OpenCV", icon: "opencv" },
+      { name: "Hugging Face", icon: "huggingface" },
+      { name: "NLP (TF-IDF)", icon: "nlp" },
     ],
   },
-  // ===== TOOLS =====
   {
-    category: "Tools",
+    category: "Tools & Libraries",
     items: [
-      { name: "Git", icon: "git" },
-      { name: "Docker", icon: "docker" },
-      { name: "AWS", icon: "aws" },
-      { name: "Figma", icon: "figma" },
-      // REPLACE ME: Add/remove your tools
+      { name: "Streamlit", icon: "streamlit" },
+      { name: "Pandas", icon: "pandas" },
+      { name: "NumPy", icon: "numpy" },
+      { name: "Matplotlib", icon: "matplotlib" },
+      { name: "Git / GitHub", icon: "git" },
+      { name: "Jupyter Notebook", icon: "jupyter" },
+      { name: "VS Code", icon: "vscode" },
     ],
   },
 ];
 
 export const projects = [
-  // ===== PROJECT 1 =====
   {
     id: 1,
-    name: "[PROJECT NAME 1]",
-    shortDesc: "[ONE-LINE PROBLEM/SOLUTION]",
-    // e.g. "An e-commerce platform that reduced checkout time by 40%"
-    problem: "[Describe the problem this project solved]",
-    role: "[Your specific role — e.g. 'Lead frontend developer']",
-    techStack: ["React", "Node.js", "PostgreSQL"],
-    // REPLACE ME: Update with your actual tech stack
-    techDecisions: "[Why you chose these technologies]",
-    outcome: "[Impact/results — use metrics if possible]",
+    name: "Smart Expense Categorizer",
+    shortDesc:
+      "ML web app that auto-classifies financial transactions into 6 categories with 85–95% accuracy.",
+    problem:
+      "Manual expense tracking is tedious and error-prone. Users need a fast, automatic way to categorize financial transactions without manual tagging.",
+    role: " sole developer — designed the ML pipeline, Streamlit UI, and analytics dashboard.",
+    techStack: ["Python", "scikit-learn", "Streamlit", "Pandas", "NLP"],
+    techDecisions:
+      "Chose TF-IDF vectorization + Logistic Regression for its balance of accuracy and speed on short text. Streamlit for rapid prototyping of the interactive dashboard.",
+    outcome:
+      "Achieved 85–95% classification accuracy across 6 categories (Food, Travel, Shopping, Bills, Entertainment, Healthcare). Supports both single and batch transaction categorization with confidence scoring and CSV export.",
     metrics: [
-      // Optional: quantitative impact
-      // { label: "Users", value: "10K+" },
-      // { label: "Performance", value: "3x faster" },
+      { label: "Accuracy", value: "85–95%" },
+      { label: "Categories", value: "6" },
     ],
-    liveUrl: "[LIVE URL or #]",
-    githubUrl: "[GITHUB URL or #]",
-    thumbnail: "/projects/project1.jpg", // Place in public/projects/
+    liveUrl: "#",
+    githubUrl:
+      "https://github.com/ipsita21012007/Smart-Expense-Categorizer-",
+    thumbnail: "/projects/expense-categorizer.jpg",
   },
-  // ===== PROJECT 2 =====
   {
     id: 2,
-    name: "[PROJECT NAME 2]",
-    shortDesc: "[ONE-LINE PROBLEM/SOLUTION]",
-    problem: "[Describe the problem]",
-    role: "[Your role]",
-    techStack: ["Next.js", "TypeScript", "Tailwind"],
-    techDecisions: "[Why these tech choices]",
-    outcome: "[Impact/results]",
+    name: "Smart Task Manager — Agentic AI",
+    shortDesc:
+      "Natural-language task agent that parses free-text commands into structured tasks.",
+    problem:
+      "Traditional task managers require rigid input formats. Users want to just type naturally — \"schedule meeting at 3pm tomorrow\" — and have the system understand.",
+    role: " Sole developer — built the NLP parser, chat interface, and session state management.",
+    techStack: ["Python", "Streamlit", "NLP", "Regex"],
+    techDecisions:
+      "Used regex-based parsing with date/time extraction for reliable, lightweight intent classification without needing a large language model. Streamlit for the responsive chat UI.",
+    outcome:
+      "Built a working agent that classifies commands as meetings, reminders, or general tasks. Features a live task-list with session-based persistence and a clean chat interface.",
     metrics: [],
-    liveUrl: "[LIVE URL or #]",
-    githubUrl: "[GITHUB URL or #]",
-    thumbnail: "/projects/project2.jpg",
+    liveUrl: "#",
+    githubUrl:
+      "https://github.com/ipsita21012007/Smart-Task-manager-Agentic-AI-",
+    thumbnail: "/projects/task-manager.jpg",
   },
-  // ===== PROJECT 3 =====
   {
     id: 3,
-    name: "[PROJECT NAME 3]",
-    shortDesc: "[ONE-LINE PROBLEM/SOLUTION]",
-    problem: "[Describe the problem]",
-    role: "[Your role]",
-    techStack: ["Python", "FastAPI", "React"],
-    techDecisions: "[Why these tech choices]",
-    outcome: "[Impact/results]",
+    name: "Uncertainty-Aware Terrain Segmentation",
+    shortDesc:
+      "Multimodal deep learning framework for planetary rover navigation (in progress).",
+    problem:
+      "Planetary rovers need to assess terrain traversability from limited sensor data while quantifying uncertainty in their predictions for safe navigation.",
+    role: " Researcher & developer — designing the multimodal pipeline and training architecture.",
+    techStack: ["Python", "PyTorch", "OpenCV", "Hugging Face"],
+    techDecisions:
+      "Combining RGB, depth, and thermal imagery in a multimodal architecture. Using the BASEPROD dataset from Hugging Face with a modular, reproducible notebook-based workflow for rapid experimentation.",
+    outcome:
+      "In progress — developing end-to-end preprocessing pipeline and uncertainty estimation module. Targeting semantic segmentation with traversability prediction for rover path planning.",
     metrics: [],
-    liveUrl: "[LIVE URL or #]",
-    githubUrl: "[GITHUB URL or #]",
-    thumbnail: "/projects/project3.jpg",
+    liveUrl: "#",
+    githubUrl:
+      "https://github.com/ipsita21012007/UA-MTSeg-Rover-Navigation",
+    thumbnail: "/projects/terrain-segmentation.jpg",
   },
-  // REPLACE ME: Add more projects (up to 6)
 ];
 
 export const experience = [
-  // ===== ROLE 1 =====
   {
     id: 1,
-    role: "[JOB TITLE]",
-    company: "[COMPANY NAME]",
-    companyUrl: "[COMPANY URL]",
-    period: "[START DATE] — [END DATE]",  // e.g. "Jan 2023 — Present"
+    role: "Community Programs & Digital Initiatives Intern",
+    company: "Namjai Foundation",
+    companyUrl: "#",
+    period: "Jun 2026 — Jul 2026",
     highlights: [
-      "[Key achievement #1 with metrics if possible]",
-      "[Key achievement #2]",
+      "Conducted a comprehensive website audit covering content accuracy, design, navigation, SEO, and mobile responsiveness — identified broken links, non-functional buttons, and inconsistent statistics.",
+      "Documented findings and improvement proposals in structured reports; used Git/GitHub for version control and content management.",
+      "Played a key role in planning CPR and Emergency First Aid Training programmes for the community.",
     ],
   },
-  // ===== ROLE 2 =====
-  {
-    id: 2,
-    role: "[JOB TITLE]",
-    company: "[COMPANY NAME]",
-    companyUrl: "[COMPANY URL]",
-    period: "[START DATE] — [END DATE]",
-    highlights: [
-      "[Key achievement #1]",
-      "[Key achievement #2]",
-    ],
-  },
-  // ===== ROLE 3 =====
-  {
-    id: 3,
-    role: "[JOB TITLE]",
-    company: "[COMPANY NAME]",
-    companyUrl: "[COMPANY URL]",
-    period: "[START DATE] — [END DATE]",
-    highlights: [
-      "[Key achievement #1]",
-    ],
-  },
-  // REPLACE ME: Add/remove roles
 ];
 
 export const testimonials = [
-  {
-    id: 1,
-    quote: "[A short, impactful quote from a manager or colleague]",
-    author: "[AUTHOR NAME]",
-    role: "[AUTHOR ROLE at COMPANY]",
-    // e.g. "Engineering Manager at Acme Corp"
-  },
-  {
-    id: 2,
-    quote: "[Another quote highlighting a different strength]",
-    author: "[AUTHOR NAME]",
-    role: "[AUTHOR ROLE at COMPANY]",
-  },
-  // REPLACE ME: Add/remove testimonials
+  // REPLACE ME: Add testimonials from managers/colleagues once available
 ];
 
 export const navLinks = [

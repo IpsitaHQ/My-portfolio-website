@@ -5,29 +5,29 @@ import { useScrollAnimation } from "./SectionWrapper";
 /**
  * Skills Section — Clean categorized grid.
  *
- * Shows skills grouped by category (Languages, Frameworks, Tools).
- * Each skill gets a pill badge with an icon (emoji fallback) and name.
+ * Shows skills grouped by category with emoji icon badges.
  *
  * TO USE REAL ICONS:
  * 1. Install react-icons: npm install react-icons
- * 2. Import the specific icon component (e.g. { FaReact } from "react-icons/fa")
+ * 2. Import the specific icon component (e.g. { FaPython } from "react-icons/fa")
  * 3. Map skill.icon names to actual icon components in the render
  */
 
-// Simple icon mapping using emojis (no extra deps needed)
 const iconMap = {
-  js: "🟨",
-  ts: "🟦",
   python: "🐍",
-  html: "🌐",
-  react: "⚛️",
-  nextjs: "▲",
-  nodejs: "🟢",
-  tailwind: "🎨",
+  cpp: "⚡",
+  pytorch: "🔥",
+  sklearn: "📊",
+  opencv: "👁️",
+  huggingface: "🤗",
+  nlp: "💬",
+  streamlit: "🎈",
+  pandas: "🐼",
+  numpy: "🔢",
+  matplotlib: "📈",
   git: "🔀",
-  docker: "🐳",
-  aws: "☁️",
-  figma: "🖌️",
+  jupyter: "📓",
+  vscode: "💻",
   // REPLACE ME: Add more icons for your skills
 };
 
