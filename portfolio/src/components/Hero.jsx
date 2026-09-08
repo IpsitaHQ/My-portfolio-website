@@ -3,67 +3,112 @@ import { ArrowRight, Mail } from "lucide-react";
 import { personalInfo } from "../data";
 
 /**
- * Hero Section — The first thing recruiters see.
- *
- * Design decisions:
- * - Under 25 words of copy (recruiters skim fast)
- * - Two strong CTAs: View Work (primary) + Contact (secondary)
- * - Resume download always visible via Navbar
- * - The canvas particle background sits BEHIND this section
- * - Floating CSS 3D shape adds depth without heavy JS
- *
- * TO ADD A REAL 3D SCENE:
- * 1. Import { Canvas } from "@react-three/fiber" and { Float } from "@react-three/drei"
- * 2. Wrap a <Canvas> in this section with a low-poly mesh or shader
- * 3. Use React.lazy() to code-split it for performance
+ * Hero — Cinematic opening with warm sun graphic, orbital lines,
+ * and mission-control typography.
  */
 
 const container = {
   hidden: { opacity: 0 },
   show: {
     opacity: 1,
-    transition: { staggerChildren: 0.15, delayChildren: 0.3 },
+    transition: { staggerChildren: 0.12, delayChildren: 0.4 },
   },
 };
 
 const item = {
-  hidden: { opacity: 0, y: 30 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
+  hidden: { opacity: 0, y: 25 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] } },
 };
 
 export default function Hero() {
   return (
     <section
       id="hero"
-      className="relative min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 pt-20 overflow-hidden"
+      className="relative min-h-screen flex items-center px-6 sm:px-8 lg:px-16 pt-24 overflow-hidden"
     >
-      {/* Decorative floating 3D-like accent shape (CSS 3D, no JS library needed) */}
+      {/* ── Warm sun glow from top-right ────────────────────────────── */}
       <div
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] md:w-[700px] md:h-[700px] opacity-[0.07] pointer-events-none"
+        className="absolute -top-32 -right-32 w-[500px] h-[500px] md:w-[700px] md:h-[700px] pointer-events-none"
         aria-hidden="true"
-        style={{ perspective: "800px" }}
       >
         <div
-          className="w-full h-full rounded-full"
+          className="absolute inset-0 rounded-full"
           style={{
-            background:
-              "conic-gradient(from 0deg, #6366f1, #a855f7, #ec4899, #6366f1)",
-            filter: "blur(60px)",
-            animation: "spin 20s linear infinite",
+            background: "radial-gradient(circle, rgba(255,140,66,0.12) 0%, rgba(255,178,94,0.06) 30%, rgba(255,130,50,0.02) 60%, transparent 80%)",
+            filter: "blur(40px)",
+          }}
+        />
+        <div
+          className="absolute inset-[15%] rounded-full"
+          style={{
+            background: "radial-gradient(circle, rgba(255,178,94,0.08) 0%, transparent 70%)",
+            filter: "blur(20px)",
           }}
         />
       </div>
 
+      {/* ── Orbital rings behind text ───────────────────────────────── */}
+      <div
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] md:w-[1000px] md:h-[1000px] pointer-events-none"
+        aria-hidden="true"
+      >
+        {/* Orbital ring 1 */}
+        <div
+          className="absolute inset-0 rounded-full border border-white/[0.03]"
+          style={{ transform: "rotateX(75deg) rotateZ(12deg)" }}
+        />
+        {/* Orbital ring 2 */}
+        <div
+          className="absolute inset-[8%] rounded-full border border-white/[0.025]"
+          style={{ transform: "rotateX(75deg) rotateZ(-8deg)" }}
+        />
+        {/* Orbital ring 3 */}
+        <div
+          className="absolute inset-[18%] rounded-full border border-white/[0.02]"
+          style={{ transform: "rotateX(75deg) rotateZ(20deg)" }}
+        />
+        {/* Warm accent ring */}
+        <div
+          className="absolute inset-[5%] rounded-full"
+          style={{
+            border: "1px solid rgba(255, 140, 66, 0.04)",
+            transform: "rotateX(75deg) rotateZ(5deg)",
+          }}
+        />
+        {/* Central glow point */}
+        <div
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-2 h-2 rounded-full"
+          style={{
+            background: "rgba(255, 140, 66, 0.4)",
+            boxShadow: "0 0 20px rgba(255, 140, 66, 0.2), 0 0 60px rgba(255, 140, 66, 0.1)",
+          }}
+        />
+      </div>
+
+      {/* ── Content ─────────────────────────────────────────────────── */}
       <motion.div
         variants={container}
         initial="hidden"
         animate="show"
-        className="relative z-10 max-w-4xl mx-auto text-center"
+        className="relative z-10 max-w-3xl"
       >
-        {/* Greeting badge */}
-        <motion.div variants={item} className="mb-6">
-          <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-sm font-medium bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">
-            <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
+        {/* Status badge */}
+        <motion.div variants={item} className="mb-8">
+          <span className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full text-xs font-semibold tracking-[0.15em] uppercase"
+            style={{
+              color: "var(--c-amber)",
+              background: "rgba(255, 140, 66, 0.08)",
+              border: "1px solid rgba(255, 140, 66, 0.15)",
+            }}
+          >
+            <span
+              className="w-1.5 h-1.5 rounded-full"
+              style={{
+                background: "var(--c-amber)",
+                boxShadow: "0 0 8px rgba(255, 140, 66, 0.6)",
+                animation: "glow-breathe 2s ease-in-out infinite",
+              }}
+            />
             Available for opportunities
           </span>
         </motion.div>
@@ -71,7 +116,8 @@ export default function Hero() {
         {/* Name */}
         <motion.h1
           variants={item}
-          className="text-4xl sm:text-5xl md:text-7xl font-bold tracking-tight mb-4"
+          className="text-5xl sm:text-6xl md:text-7xl font-bold leading-[0.95] mb-6"
+          style={{ fontFamily: "var(--font-display)", letterSpacing: "0.02em" }}
         >
           Hi, I&apos;m{" "}
           <span className="gradient-text">{personalInfo.name}</span>
@@ -80,7 +126,8 @@ export default function Hero() {
         {/* Role */}
         <motion.p
           variants={item}
-          className="text-xl sm:text-2xl md:text-3xl font-medium text-gray-400 dark:text-gray-400 mb-6"
+          className="section-label text-lg sm:text-xl md:text-2xl mb-8"
+          style={{ color: "var(--c-text-muted)", letterSpacing: "0.2em" }}
         >
           {personalInfo.role}
         </motion.p>
@@ -88,57 +135,68 @@ export default function Hero() {
         {/* Tagline */}
         <motion.p
           variants={item}
-          className="text-lg sm:text-xl text-gray-300 max-w-2xl mx-auto mb-10 leading-relaxed"
+          className="text-base sm:text-lg md:text-xl leading-relaxed mb-12 max-w-xl"
+          style={{ color: "var(--c-text-muted)" }}
         >
           {personalInfo.tagline}
         </motion.p>
 
         {/* CTAs */}
-        <motion.div
-          variants={item}
-          className="flex flex-col sm:flex-row items-center justify-center gap-4"
-        >
-          <a
-            href="#projects"
-            className="group inline-flex items-center gap-2 px-8 py-3.5 text-base font-semibold rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white transition-all duration-200 shadow-lg shadow-indigo-500/25 hover:shadow-indigo-500/40"
-          >
+        <motion.div variants={item} className="flex flex-wrap items-center gap-4">
+          <a href="#projects" className="btn-primary group">
             View Work
-            <ArrowRight
-              size={18}
-              className="transition-transform group-hover:translate-x-1"
-            />
+            <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
           </a>
-          <a
-            href="#contact"
-            className="inline-flex items-center gap-2 px-8 py-3.5 text-base font-semibold rounded-xl border border-white/10 hover:border-white/20 text-gray-300 hover:text-white transition-all duration-200 hover:bg-white/5"
-          >
-            <Mail size={18} />
+          <a href="#contact" className="btn-secondary group">
+            <Mail size={16} />
             Contact Me
           </a>
         </motion.div>
 
         {/* Scroll indicator */}
-        <motion.div
-          variants={item}
-          className="mt-16 md:mt-24"
-        >
+        <motion.div variants={item} className="mt-20 md:mt-32">
           <motion.div
-            animate={{ y: [0, 8, 0] }}
-            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-            className="w-6 h-10 mx-auto rounded-full border-2 border-white/20 flex justify-center pt-2"
+            animate={{ y: [0, 6, 0] }}
+            transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
+            className="flex flex-col items-center gap-2"
           >
-            <div className="w-1 h-2.5 rounded-full bg-white/40" />
+            <span className="text-[0.6rem] font-semibold tracking-[0.3em] uppercase"
+              style={{ color: "var(--c-text-muted)", fontFamily: "var(--font-display)" }}
+            >
+              Scroll
+            </span>
+            <div
+              className="w-5 h-8 rounded-full flex justify-center pt-1.5"
+              style={{ border: "1px solid rgba(255,255,255,0.12)" }}
+            >
+              <div
+                className="w-0.5 h-2 rounded-full"
+                style={{ background: "rgba(255, 140, 66, 0.5)" }}
+              />
+            </div>
           </motion.div>
         </motion.div>
       </motion.div>
 
-      {/* Keyframes for the spinner */}
-      <style>{`
-        @keyframes spin {
-          from { transform: rotate(0deg); }
-          to { transform: rotate(360deg); }
-        }
-      `}</style>
+      {/* ── Decorative orbital dot (right side) ──────────────────────── */}
+      <div
+        className="hidden lg:block absolute right-16 top-1/3"
+        aria-hidden="true"
+      >
+        <div className="orbital-dot" />
+        <div
+          className="absolute top-0 left-4 whitespace-nowrap"
+          style={{
+            fontFamily: "var(--font-display)",
+            fontSize: "0.6rem",
+            letterSpacing: "0.2em",
+            color: "var(--c-text-muted)",
+            transform: "translateY(-50%)",
+          }}
+        >
+          MISSION CONTROL
+        </div>
+      </div>
     </section>
   );
 }

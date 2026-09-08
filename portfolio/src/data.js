@@ -24,7 +24,7 @@ export const personalInfo = {
 
   email: "ipshitaroy2007@gmail.com",
   github: "https://github.com/IpsitaHQ",
-  linkedin: "https://www.linkedin.com/in/ipsitaroy7002",
+  linkedin: "https://www.linkedin.com/in/ipsitahq07",
   resumeUrl: "/resume.pdf",
 
   photoUrl: "/photo.jpg",
@@ -85,7 +85,7 @@ export const projects = [
     liveUrl: "#",
     githubUrl:
       "https://github.com/ipsita21012007/Smart-Expense-Categorizer-",
-    thumbnail: "/projects/expense-categorizer.jpg",
+    thumbnail: "/projects/expense-categorizer.svg",
   },
   {
     id: 2,
@@ -104,7 +104,7 @@ export const projects = [
     liveUrl: "#",
     githubUrl:
       "https://github.com/ipsita21012007/Smart-Task-manager-Agentic-AI-",
-    thumbnail: "/projects/task-manager.jpg",
+    thumbnail: "/projects/task-manager.svg",
   },
   {
     id: 3,
@@ -123,7 +123,7 @@ export const projects = [
     liveUrl: "#",
     githubUrl:
       "https://github.com/ipsita21012007/UA-MTSeg-Rover-Navigation",
-    thumbnail: "/projects/terrain-segmentation.jpg",
+    thumbnail: "/projects/terrain-segmentation.svg",
   },
 ];
 

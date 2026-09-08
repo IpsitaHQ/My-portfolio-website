@@ -5,27 +5,13 @@ import { GithubIcon, LinkedinIcon } from "./BrandIcons";
 import { personalInfo } from "../data";
 import { useScrollAnimation } from "./SectionWrapper";
 
-/**
- * Contact Section — Form + direct links.
- *
- * The form currently just shows a success toast (static demo).
- * To make it functional:
- * 1. Use a service like Formspree, Netlify Forms, or EmailJS
- * 2. Replace the onSubmit handler with a fetch() to your endpoint
- */
-
 export default function Contact() {
   const [ref, inView] = useScrollAnimation();
-  const [formState, setFormState] = useState({
-    name: "",
-    email: "",
-    message: "",
-  });
+  const [formState, setFormState] = useState({ name: "", email: "", message: "" });
   const [submitted, setSubmitted] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // REPLACE ME: Add your form submission logic (Formspree, Netlify Forms, etc.)
     console.log("Form submitted:", formState);
     setSubmitted(true);
     setTimeout(() => setSubmitted(false), 3000);
@@ -39,30 +25,30 @@ export default function Contact() {
   ];
 
   return (
-    <section
-      id="contact"
-      className="relative py-24 md:py-32 px-4 sm:px-6 lg:px-8"
-      ref={ref}
-    >
+    <section id="contact" className="relative py-28 md:py-40 px-6 sm:px-8 lg:px-16" ref={ref}>
+      {/* Orbital dot */}
+      <div className="absolute left-0 top-1/2 -translate-y-1/2 hidden lg:block" aria-hidden="true">
+        <div className="orbital-dot" />
+      </div>
+
       <div className="max-w-6xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="mb-16"
         >
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+          <p className="section-label mb-3">05 —</p>
+          <h2 className="section-title text-3xl md:text-5xl">
             Get In <span className="gradient-text">Touch</span>
           </h2>
-          <div className="w-16 h-1 mx-auto rounded-full bg-gradient-to-r from-indigo-500 to-purple-500" />
-          <p className="mt-4 text-gray-400 max-w-lg mx-auto">
-            Have a project in mind or just want to chat? I&apos;d love to hear
-            from you.
+          <p className="mt-4 max-w-lg text-sm" style={{ color: "var(--c-text-muted)" }}>
+            Have a project in mind or just want to chat? I&apos;d love to hear from you.
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-12 max-w-5xl mx-auto">
-          {/* Contact form */}
+        <div className="grid md:grid-cols-2 gap-12 max-w-6xl">
+          {/* Form */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
@@ -70,77 +56,41 @@ export default function Contact() {
           >
             <form onSubmit={handleSubmit} className="space-y-5">
               <div>
-                <label
-                  htmlFor="name"
-                  className="block text-sm font-medium text-gray-300 mb-1.5"
-                >
+                <label htmlFor="name" className="section-label text-[0.65rem] block mb-2" style={{ color: "var(--c-text-muted)" }}>
                   Name
                 </label>
-                <input
-                  id="name"
-                  type="text"
-                  required
-                  value={formState.name}
-                  onChange={(e) =>
-                    setFormState((s) => ({ ...s, name: e.target.value }))
-                  }
-                  className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-gray-500 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-colors"
-                  placeholder="Your name"
+                <input id="name" type="text" required value={formState.name}
+                  onChange={(e) => setFormState((s) => ({ ...s, name: e.target.value }))}
+                  className="input-field" placeholder="Your name"
                 />
               </div>
               <div>
-                <label
-                  htmlFor="email"
-                  className="block text-sm font-medium text-gray-300 mb-1.5"
-                >
+                <label htmlFor="email" className="section-label text-[0.65rem] block mb-2" style={{ color: "var(--c-text-muted)" }}>
                   Email
                 </label>
-                <input
-                  id="email"
-                  type="email"
-                  required
-                  value={formState.email}
-                  onChange={(e) =>
-                    setFormState((s) => ({ ...s, email: e.target.value }))
-                  }
-                  className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-gray-500 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-colors"
-                  placeholder="you@example.com"
+                <input id="email" type="email" required value={formState.email}
+                  onChange={(e) => setFormState((s) => ({ ...s, email: e.target.value }))}
+                  className="input-field" placeholder="you@example.com"
                 />
               </div>
               <div>
-                <label
-                  htmlFor="message"
-                  className="block text-sm font-medium text-gray-300 mb-1.5"
-                >
+                <label htmlFor="message" className="section-label text-[0.65rem] block mb-2" style={{ color: "var(--c-text-muted)" }}>
                   Message
                 </label>
-                <textarea
-                  id="message"
-                  required
-                  rows={5}
-                  value={formState.message}
-                  onChange={(e) =>
-                    setFormState((s) => ({ ...s, message: e.target.value }))
-                  }
-                  className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-gray-500 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-colors resize-none"
-                  placeholder="Tell me about your project..."
+                <textarea id="message" required rows={5} value={formState.message}
+                  onChange={(e) => setFormState((s) => ({ ...s, message: e.target.value }))}
+                  className="input-field resize-none" placeholder="Tell me about your project..."
                 />
               </div>
-
-              <button
-                type="submit"
-                className="w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 text-base font-semibold rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white transition-colors shadow-lg shadow-indigo-500/25"
-              >
-                <Send size={18} />
-                Send Message
+              <button type="submit" className="btn-primary w-full justify-center">
+                <Send size={16} /> Send Message
               </button>
-
-              {/* Success toast */}
               {submitted && (
                 <motion.p
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
-                  className="text-green-400 text-sm text-center"
+                  className="text-sm text-center"
+                  style={{ color: "var(--c-amber)" }}
                 >
                   ✓ Message sent! (Demo — wire up your form service)
                 </motion.p>
@@ -148,14 +98,14 @@ export default function Contact() {
             </form>
           </motion.div>
 
-          {/* Direct links */}
+          {/* Social links */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.5, delay: 0.3 }}
             className="flex flex-col justify-center"
           >
-            <p className="text-gray-400 mb-6">
+            <p className="mb-6 text-sm" style={{ color: "var(--c-text-muted)" }}>
               Or reach me directly through any of these channels:
             </p>
             <div className="space-y-3">
@@ -165,23 +115,21 @@ export default function Contact() {
                   href={href}
                   target={external ? "_blank" : undefined}
                   rel={external ? "noopener noreferrer" : undefined}
-                  className="flex items-center gap-4 p-4 glass-card hover:border-indigo-500/30 transition-all group"
+                  className="glass-card glass-card-warm flex items-center gap-4 p-4 group transition-all"
                 >
-                  <div className="w-10 h-10 rounded-xl bg-indigo-500/10 flex items-center justify-center group-hover:bg-indigo-500/20 transition-colors">
-                    <Icon size={20} className="text-indigo-400" />
+                  <div
+                    className="w-10 h-10 rounded-xl flex items-center justify-center transition-colors"
+                    style={{ background: "rgba(255, 140, 66, 0.06)" }}
+                  >
+                    <Icon size={18} style={{ color: "var(--c-amber)" }} />
                   </div>
                   <div>
-                    <p className="text-sm font-medium text-white">{label}</p>
-                    <p className="text-xs text-gray-400">
-                      {label === "Email"
-                        ? personalInfo.email
-                        : href.replace("https://", "")}
+                    <p className="text-sm font-semibold" style={{ color: "var(--c-text)", fontFamily: "var(--font-display)" }}>{label}</p>
+                    <p className="text-xs" style={{ color: "var(--c-text-muted)" }}>
+                      {label === "Email" ? personalInfo.email : href.replace("https://", "")}
                     </p>
                   </div>
-                  <ExternalLink
-                    size={14}
-                    className="ml-auto text-gray-500 group-hover:text-indigo-400 transition-colors"
-                  />
+                  <ExternalLink size={13} className="ml-auto transition-colors" style={{ color: "var(--c-text-muted)" }} />
                 </a>
               ))}
             </div>

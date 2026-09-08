@@ -1,0 +1,317 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450">
+  <defs>
+    <linearGradient id="bg3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#050810"/>
+      <stop offset="40%" stop-color="#0D0A08"/>
+      <stop offset="100%" stop-color="#0A0E1A"/>
+    </linearGradient>
+    <linearGradient id="mars" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#8B4513"/>
+      <stop offset="50%" stop-color="#A0522D"/>
+      <stop offset="100%" stop-color="#6B3410"/>
+    </linearGradient>
+    <linearGradient id="scan" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#22C55E" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#22C55E" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="scanRed" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#EF4444" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#EF4444" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="neon3" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#22C55E"/>
+      <stop offset="100%" stop-color="#5FA8D3"/>
+    </linearGradient>
+    <filter id="glow3">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="softglow3">
+      <feGaussianBlur stdDeviation="12" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="bigglow3">
+      <feGaussianBlur stdDeviation="20" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <clipPath id="terrainClip">
+      <rect x="0" y="280" width="800" height="170"/>
+    </clipPath>
+  </defs>
+
+  <!-- Background - space -->
+  <rect width="800" height="450" fill="url(#bg3)"/>
+
+  <!-- Stars -->
+  <g fill="#F5F5F0" opacity="0.5">
+    <circle cx="50" cy="30" r="0.8"/><circle cx="120" cy="60" r="0.6"/>
+    <circle cx="200" cy="20" r="1"/><circle cx="280" cy="45" r="0.7"/>
+    <circle cx="350" cy="15" r="0.5"/><circle cx="420" cy="55" r="0.9"/>
+    <circle cx="500" cy="25" r="0.6"/><circle cx="580" cy="50" r="0.8"/>
+    <circle cx="650" cy="30" r="0.7"/><circle cx="720" cy="60" r="0.5"/>
+    <circle cx="100" cy="90" r="0.4"/><circle cx="300" cy="80" r="0.6"/>
+    <circle cx="600" cy="85" r="0.5"/><circle cx="750" cy="40" r="0.7"/>
+    <circle cx="180" cy="70" r="0.3"/><circle cx="460" cy="75" r="0.4"/>
+  </g>
+
+  <!-- Grid overlay (technical/blueprint feel) -->
+  <g opacity="0.03" stroke="#22C55E" stroke-width="0.5">
+    <line x1="0" y1="300" x2="800" y2="300"/>
+    <line x1="0" y1="340" x2="800" y2="340"/>
+    <line x1="0" y1="380" x2="800" y2="380"/>
+    <line x1="200" y1="0" x2="200" y2="450"/>
+    <line x1="400" y1="0" x2="400" y2="450"/>
+    <line x1="600" y1="0" x2="600" y2="450"/>
+  </g>
+
+  <!-- === MARS TERRAIN === -->
+  <g clip-path="url(#terrainClip)">
+    <!-- Mars surface gradient -->
+    <rect x="0" y="280" width="800" height="170" fill="#1A0E05"/>
+
+    <!-- Terrain undulations -->
+    <path d="M 0,300 Q 50,290 100,295 Q 150,305 200,298 Q 250,288 300,295 Q 350,302 400,290 Q 450,285 500,295 Q 550,305 600,298 Q 650,288 700,295 Q 750,302 800,290 L 800,450 L 0,450 Z" fill="#2D1608" opacity="0.8"/>
+    <path d="M 0,320 Q 80,310 160,315 Q 240,325 320,318 Q 400,308 480,315 Q 560,322 640,312 Q 720,305 800,315 L 800,450 L 0,450 Z" fill="#3D1E0C" opacity="0.6"/>
+    <path d="M 0,350 Q 100,340 200,345 Q 300,355 400,348 Q 500,338 600,345 Q 700,352 800,345 L 800,450 L 0,450 Z" fill="#4D2810" opacity="0.4"/>
+
+    <!-- Rocks on terrain -->
+    <g fill="#3D1E0C" opacity="0.7">
+      <ellipse cx="120" cy="310" rx="12" ry="6"/>
+      <ellipse cx="350" cy="325" rx="8" ry="4"/>
+      <ellipse cx="580" cy="315" rx="15" ry="5"/>
+      <ellipse cx="700" cy="330" rx="10" ry="4"/>
+      <ellipse cx="250" cy="340" rx="6" ry="3"/>
+      <ellipse cx="480" cy="345" rx="9" ry="4"/>
+    </g>
+
+    <!-- Color-coded segmentation grid -->
+    <g opacity="0.3">
+      <!-- Green = traversable -->
+      <rect x="50" y="310" width="35" height="35" rx="2" fill="#22C55E" opacity="0.4"/>
+      <rect x="90" y="310" width="35" height="35" rx="2" fill="#22C55E" opacity="0.3"/>
+      <rect x="130" y="310" width="35" height="35" rx="2" fill="#22C55E" opacity="0.5"/>
+      <rect x="170" y="310" width="35" height="35" rx="2" fill="#22C55E" opacity="0.35"/>
+      <rect x="260" y="310" width="35" height="35" rx="2" fill="#22C55E" opacity="0.45"/>
+      <rect x="300" y="310" width="35" height="35" rx="2" fill="#22C55E" opacity="0.3"/>
+
+      <!-- Red = hazard -->
+      <rect x="340" y="310" width="35" height="35" rx="2" fill="#EF4444" opacity="0.35"/>
+      <rect x="380" y="310" width="35" height="35" rx="2" fill="#EF4444" opacity="0.25"/>
+      <rect x="550" y="310" width="35" height="35" rx="2" fill="#EF4444" opacity="0.4"/>
+      <rect x="590" y="310" width="35" height="35" rx="2" fill="#EF4444" opacity="0.3"/>
+
+      <!-- Yellow = uncertain -->
+      <rect x="420" y="310" width="35" height="35" rx="2" fill="#EAB308" opacity="0.35"/>
+      <rect x="460" y="310" width="35" height="35" rx="2" fill="#EAB308" opacity="0.3"/>
+      <rect x="500" y="310" width="35" height="35" rx="2" fill="#EAB308" opacity="0.25"/>
+      <rect x="640" y="310" width="35" height="35" rx="2" fill="#EAB308" opacity="0.4"/>
+
+      <!-- More green far side -->
+      <rect x="680" y="310" width="35" height="35" rx="2" fill="#22C55E" opacity="0.3"/>
+      <rect x="720" y="310" width="35" height="35" rx="2" fill="#22C55E" opacity="0.25"/>
+    </g>
+  </g>
+
+  <!-- === ROVER (center-left) === -->
+  <g transform="translate(310, 180)">
+    <!-- Rover body glow -->
+    <ellipse cx="90" cy="95" rx="60" ry="15" fill="#5FA8D3" opacity="0.08" filter="url(#bigglow3)"/>
+
+    <!-- Shadow on ground -->
+    <ellipse cx="90" cy="125" rx="50" ry="8" fill="#000" opacity="0.3"/>
+
+    <!-- Solar panels -->
+    <rect x="10" y="30" width="35" height="20" rx="2" fill="#1E3A5F" stroke="#2D5A8E" stroke-width="0.8" transform="rotate(-10, 27, 40)"/>
+    <rect x="135" y="30" width="35" height="20" rx="2" fill="#1E3A5F" stroke="#2D5A8E" stroke-width="0.8" transform="rotate(10, 152, 40)"/>
+    <!-- Panel grid lines -->
+    <g stroke="#5FA8D3" stroke-width="0.3" opacity="0.4">
+      <line x1="15" y1="37" x2="42" y2="33" transform="rotate(-10, 27, 40)"/>
+      <line x1="15" y1="43" x2="42" y2="39" transform="rotate(-10, 27, 40)"/>
+      <line x1="140" y1="33" x2="167" y2="37" transform="rotate(10, 152, 40)"/>
+      <line x1="140" y1="39" x2="167" y2="43" transform="rotate(10, 152, 40)"/>
+    </g>
+
+    <!-- Main body -->
+    <rect x="35" y="50" width="110" height="50" rx="8" fill="#2D2D2D" stroke="#4A4A4A" stroke-width="1.2"/>
+    <!-- Body panel details -->
+    <rect x="42" y="55" width="96" height="40" rx="5" fill="#1A1A1A" stroke="#333" stroke-width="0.5"/>
+    <!-- Status lights on body -->
+    <circle cx="55" cy="65" r="3" fill="#22C55E" opacity="0.8" filter="url(#glow3)"/>
+    <circle cx="68" cy="65" r="3" fill="#5FA8D3" opacity="0.7"/>
+    <circle cx="81" cy="65" r="3" fill="#EAB308" opacity="0.6"/>
+    <!-- Body text -->
+    <text x="100" y="68" font-family="monospace" font-size="6" fill="#8B8F9A" opacity="0.5">MTSeg-v2</text>
+
+    <!-- Camera mast -->
+    <rect x="85" y="20" width="8" height="32" rx="2" fill="#4A4A4A" stroke="#5A5A5A" stroke-width="0.5"/>
+    <!-- Camera head -->
+    <rect x="75" y="8" width="28" height="15" rx="4" fill="#333" stroke="#555" stroke-width="0.8"/>
+    <!-- Camera lenses -->
+    <circle cx="84" cy="15" r="4" fill="#0A0E1A" stroke="#5FA8D3" stroke-width="0.8"/>
+    <circle cx="84" cy="15" r="2" fill="#5FA8D3" opacity="0.6" filter="url(#glow3)"/>
+    <circle cx="96" cy="15" r="3" fill="#0A0E1A" stroke="#EF4444" stroke-width="0.6"/>
+    <circle cx="96" cy="15" r="1.5" fill="#EF4444" opacity="0.5"/>
+
+    <!-- Scanning beam from camera -->
+    <polygon points="84,23 30,350 150,350" fill="url(#scan)" opacity="0.08"/>
+    <polygon points="84,23 60,350 110,350" fill="url(#scan)" opacity="0.05"/>
+    <!-- Scan line effect -->
+    <line x1="30" y1="310" x2="150" y2="310" stroke="#22C55E" stroke-width="1.5" opacity="0.4" filter="url(#glow3)"/>
+
+    <!-- Wheels -->
+    <g>
+      <!-- Left front -->
+      <circle cx="40" cy="108" r="12" fill="#2D2D2D" stroke="#4A4A4A" stroke-width="1.5"/>
+      <circle cx="40" cy="108" r="7" fill="#1A1A1A" stroke="#333" stroke-width="0.5"/>
+      <circle cx="40" cy="108" r="2" fill="#555"/>
+      <!-- Treads -->
+      <g stroke="#4A4A4A" stroke-width="0.8">
+        <line x1="30" y1="100" x2="33" y2="103"/><line x1="30" y1="116" x2="33" y2="113"/>
+        <line x1="50" y1="100" x2="47" y2="103"/><line x1="50" y1="116" x2="47" y2="113"/>
+        <line x1="35" y1="96" x2="37" y2="99"/><line x1="45" y1="96" x2="43" y2="99"/>
+        <line x1="35" y1="120" x2="37" y2="117"/><line x1="45" y1="120" x2="43" y2="117"/>
+      </g>
+
+      <!-- Right front -->
+      <circle cx="140" cy="108" r="12" fill="#2D2D2D" stroke="#4A4A4A" stroke-width="1.5"/>
+      <circle cx="140" cy="108" r="7" fill="#1A1A1A" stroke="#333" stroke-width="0.5"/>
+      <circle cx="140" cy="108" r="2" fill="#555"/>
+      <g stroke="#4A4A4A" stroke-width="0.8">
+        <line x1="130" y1="100" x2="133" y2="103"/><line x1="130" y1="116" x2="133" y2="113"/>
+        <line x1="150" y1="100" x2="147" y2="103"/><line x1="150" y1="116" x2="147" y2="113"/>
+        <line x1="135" y1="96" x2="137" y2="99"/><line x1="145" y1="96" x2="143" y2="99"/>
+        <line x1="135" y1="120" x2="137" y2="117"/><line x1="145" y1="120" x2="143" y2="117"/>
+      </g>
+
+      <!-- Rear wheels (smaller, further back) -->
+      <circle cx="60" cy="112" r="10" fill="#2D2D2D" stroke="#4A4A4A" stroke-width="1"/>
+      <circle cx="60" cy="112" r="5" fill="#1A1A1A"/>
+      <circle cx="120" cy="112" r="10" fill="#2D2D2D" stroke="#4A4A4A" stroke-width="1"/>
+      <circle cx="120" cy="112" r="5" fill="#1A1A1A"/>
+    </g>
+  </g>
+
+  <!-- Uncertainty heatmap overlay (right side) -->
+  <g transform="translate(530, 100)">
+    <rect x="0" y="0" width="220" height="160" rx="8" fill="#0D0F1A" stroke="#22C55E" stroke-width="0.8" opacity="0.85"/>
+    <text x="12" y="18" font-family="monospace" font-size="8" fill="#22C55E" opacity="0.8">SEGMENTATION OUTPUT</text>
+
+    <!-- Mini heatmap grid -->
+    <g transform="translate(10, 28)">
+      <!-- Row 1 -->
+      <rect x="0" y="0" width="16" height="12" fill="#22C55E" opacity="0.6" rx="1"/>
+      <rect x="18" y="0" width="16" height="12" fill="#22C55E" opacity="0.5" rx="1"/>
+      <rect x="36" y="0" width="16" height="12" fill="#22C55E" opacity="0.7" rx="1"/>
+      <rect x="54" y="0" width="16" height="12" fill="#EAB308" opacity="0.4" rx="1"/>
+      <rect x="72" y="0" width="16" height="12" fill="#EF4444" opacity="0.5" rx="1"/>
+      <rect x="90" y="0" width="16" height="12" fill="#EF4444" opacity="0.4" rx="1"/>
+      <rect x="108" y="0" width="16" height="12" fill="#EAB308" opacity="0.5" rx="1"/>
+      <rect x="126" y="0" width="16" height="12" fill="#22C55E" opacity="0.4" rx="1"/>
+      <rect x="144" y="0" width="16" height="12" fill="#22C55E" opacity="0.3" rx="1"/>
+      <rect x="162" y="0" width="16" height="12" fill="#22C55E" opacity="0.5" rx="1"/>
+      <!-- Row 2 -->
+      <rect x="0" y="14" width="16" height="12" fill="#22C55E" opacity="0.4" rx="1"/>
+      <rect x="18" y="14" width="16" height="12" fill="#EAB308" opacity="0.3" rx="1"/>
+      <rect x="36" y="14" width="16" height="12" fill="#EF4444" opacity="0.6" rx="1"/>
+      <rect x="54" y="14" width="16" height="12" fill="#EF4444" opacity="0.7" rx="1"/>
+      <rect x="72" y="14" width="16" height="12" fill="#EAB308" opacity="0.5" rx="1"/>
+      <rect x="90" y="14" width="16" height="12" fill="#22C55E" opacity="0.3" rx="1"/>
+      <rect x="108" y="14" width="16" height="12" fill="#22C55E" opacity="0.6" rx="1"/>
+      <rect x="126" y="14" width="16" height="12" fill="#22C55E" opacity="0.7" rx="1"/>
+      <rect x="144" y="14" width="16" height="12" fill="#EAB308" opacity="0.4" rx="1"/>
+      <rect x="162" y="14" width="16" height="12" fill="#22C55E" opacity="0.5" rx="1"/>
+      <!-- Row 3 -->
+      <rect x="0" y="28" width="16" height="12" fill="#22C55E" opacity="0.5" rx="1"/>
+      <rect x="18" y="28" width="16" height="12" fill="#22C55E" opacity="0.6" rx="1"/>
+      <rect x="36" y="28" width="16" height="12" fill="#EAB308" opacity="0.4" rx="1"/>
+      <rect x="54" y="28" width="16" height="12" fill="#22C55E" opacity="0.5" rx="1"/>
+      <rect x="72" y="28" width="16" height="12" fill="#22C55E" opacity="0.7" rx="1"/>
+      <rect x="90" y="28" width="16" height="12" fill="#EF4444" opacity="0.3" rx="1"/>
+      <rect x="108" y="28" width="16" height="12" fill="#22C55E" opacity="0.4" rx="1"/>
+      <rect x="126" y="28" width="16" height="12" fill="#22C55E" opacity="0.6" rx="1"/>
+      <rect x="144" y="28" width="16" height="12" fill="#22C55E" opacity="0.5" rx="1"/>
+      <rect x="162" y="28" width="16" height="12" fill="#EAB308" opacity="0.3" rx="1"/>
+      <!-- Row 4 -->
+      <rect x="0" y="42" width="16" height="12" fill="#22C55E" opacity="0.6" rx="1"/>
+      <rect x="18" y="42" width="16" height="12" fill="#22C55E" opacity="0.4" rx="1"/>
+      <rect x="36" y="42" width="16" height="12" fill="#22C55E" opacity="0.5" rx="1"/>
+      <rect x="54" y="42" width="16" height="12" fill="#EAB308" opacity="0.6" rx="1"/>
+      <rect x="72" y="42" width="16" height="12" fill="#22C55E" opacity="0.3" rx="1"/>
+      <rect x="90" y="42" width="16" height="12" fill="#22C55E" opacity="0.5" rx="1"/>
+      <rect x="108" y="42" width="16" height="12" fill="#EF4444" opacity="0.4" rx="1"/>
+      <rect x="126" y="42" width="16" height="12" fill="#22C55E" opacity="0.5" rx="1"/>
+      <rect x="144" y="42" width="16" height="12" fill="#22C55E" opacity="0.4" rx="1"/>
+      <rect x="162" y="42" width="16" height="12" fill="#22C55E" opacity="0.6" rx="1"/>
+      <!-- Row 5 -->
+      <rect x="0" y="56" width="16" height="12" fill="#EAB308" opacity="0.4" rx="1"/>
+      <rect x="18" y="56" width="16" height="12" fill="#22C55E" opacity="0.5" rx="1"/>
+      <rect x="36" y="56" width="16" height="12" fill="#22C55E" opacity="0.6" rx="1"/>
+      <rect x="54" y="56" width="16" height="12" fill="#22C55E" opacity="0.4" rx="1"/>
+      <rect x="72" y="56" width="16" height="12" fill="#EF4444" opacity="0.5" rx="1"/>
+      <rect x="90" y="56" width="16" height="12" fill="#EAB308" opacity="0.4" rx="1"/>
+      <rect x="108" y="56" width="16" height="12" fill="#22C55E" opacity="0.6" rx="1"/>
+      <rect x="126" y="56" width="16" height="12" fill="#22C55E" opacity="0.5" rx="1"/>
+      <rect x="144" y="56" width="16" height="12" fill="#22C55E" opacity="0.7" rx="1"/>
+      <rect x="162" y="56" width="16" height="12" fill="#22C55E" opacity="0.4" rx="1"/>
+    </g>
+
+    <!-- Legend -->
+    <g transform="translate(10, 105)">
+      <rect x="0" y="0" width="10" height="10" fill="#22C55E" opacity="0.6" rx="2"/>
+      <text x="16" y="9" font-family="monospace" font-size="7" fill="#8B8F9A">Traversable</text>
+      <rect x="80" y="0" width="10" height="10" fill="#EF4444" opacity="0.6" rx="2"/>
+      <text x="96" y="9" font-family="monospace" font-size="7" fill="#8B8F9A">Hazard</text>
+      <rect x="0" y="16" width="10" height="10" fill="#EAB308" opacity="0.6" rx="2"/>
+      <text x="16" y="25" font-family="monospace" font-size="7" fill="#8B8F9A">Uncertain</text>
+      <text x="100" y="25" font-family="monospace" font-size="7" fill="#5FA8D3" opacity="0.6">σ² = 0.12</text>
+    </g>
+
+    <!-- Confidence score -->
+    <g transform="translate(10, 140)">
+      <text x="0" y="0" font-family="monospace" font-size="7" fill="#8B8F9A">Avg Confidence:</text>
+      <text x="100" y="0" font-family="monospace" font-size="8" fill="#22C55E" font-weight="bold">87.3%</text>
+    </g>
+  </g>
+
+  <!-- Multi-modal input labels (top left) -->
+  <g transform="translate(30, 100)">
+    <rect x="0" y="0" width="120" height="20" rx="4" fill="#0D0F1A" stroke="#334155" stroke-width="0.5" opacity="0.8"/>
+    <circle cx="14" cy="10" r="4" fill="#5FA8D3" opacity="0.5"/>
+    <text x="24" y="14" font-family="monospace" font-size="7" fill="#5FA8D3">RGB Camera</text>
+
+    <rect x="0" y="26" width="120" height="20" rx="4" fill="#0D0F1A" stroke="#334155" stroke-width="0.5" opacity="0.8"/>
+    <circle cx="14" cy="36" r="4" fill="#22C55E" opacity="0.5"/>
+    <text x="24" y="40" font-family="monospace" font-size="7" fill="#22C55E">Depth Map</text>
+
+    <rect x="0" y="52" width="120" height="20" rx="4" fill="#0D0F1A" stroke="#334155" stroke-width="0.5" opacity="0.8"/>
+    <circle cx="14" cy="62" r="4" fill="#FF8C42" opacity="0.5"/>
+    <text x="24" y="66" font-family="monospace" font-size="7" fill="#FF8C42">Thermal IR</text>
+
+    <!-- Connection lines to rover -->
+    <g stroke="#8B8F9A" stroke-width="0.5" opacity="0.2" stroke-dasharray="3,3">
+      <line x1="120" y1="10" x2="310" y2="200"/>
+      <line x1="120" y1="36" x2="310" y2="210"/>
+      <line x1="120" y1="62" x2="310" y2="220"/>
+    </g>
+  </g>
+
+  <!-- Data flow arrows -->
+  <g filter="url(#glow3)">
+    <circle cx="260" cy="280" r="2" fill="#22C55E" opacity="0.5"/>
+    <circle cx="280" cy="300" r="1.5" fill="#5FA8D3" opacity="0.4"/>
+    <circle cx="300" cy="320" r="1.8" fill="#22C55E" opacity="0.3"/>
+    <circle cx="500" cy="280" r="2" fill="#22C55E" opacity="0.4"/>
+    <circle cx="520" cy="260" r="1.5" fill="#5FA8D3" opacity="0.5"/>
+  </g>
+
+  <!-- Bottom bar -->
+  <rect x="0" y="420" width="800" height="30" fill="#0A0E1A" opacity="0.6"/>
+  <g font-family="monospace" font-size="8" fill="#22C55E" opacity="0.2">
+    <text x="20" y="438">PyTorch + OpenCV</text>
+    <text x="160" y="438">BASEPROD Dataset</text>
+    <text x="310" y="438">Multimodal Fusion</text>
+    <text x="470" y="438">Uncertainty Est.</text>
+    <text x="610" y="438">Semantic Segmentation</text>
+  </g>
+  <rect x="0" y="448" width="800" height="2" fill="url(#neon3)" opacity="0.3"/>
+</svg>

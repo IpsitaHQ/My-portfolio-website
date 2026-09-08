@@ -1,5 +1,5 @@
 import { ThemeProvider } from "./hooks/useTheme";
-import CanvasBackground from "./components/CanvasBackground";
+import SpaceScene from "./components/SpaceScene";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import About from "./components/About";
@@ -14,20 +14,20 @@ import Footer from "./components/Footer";
  * App — Root component.
  *
  * Architecture:
- * - ThemeProvider wraps everything for dark/light mode
- * - CanvasBackground is a fixed-position canvas behind all content
- * - Each section is a standalone component (easy to reorder/remove)
- * - Smooth scroll is enabled via CSS (scroll-behavior: smooth)
+ * - SpaceScene: Cinematic canvas background (starfield, warm sun glow, orbital rings)
+ * - Content: All sections flow over the space background
+ * - Each section has an orbital dot marker on the left edge (desktop)
+ * - Smooth scroll via CSS
  * - All animations use Framer Motion with scroll-triggered reveals
  */
 export default function App() {
   return (
     <ThemeProvider>
       <div className="relative min-h-screen">
-        {/* 3D-like particle background — fixed behind all content */}
-        <CanvasBackground />
+        {/* Layer 0: Cinematic space background */}
+        <SpaceScene />
 
-        {/* Content layer */}
+        {/* Layer 1: Content */}
         <div className="relative z-10">
           <Navbar />
           <main>

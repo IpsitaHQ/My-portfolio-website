@@ -1,13 +1,46 @@
 @import "tailwindcss";
 
-/* ===== Custom base styles ===== */
+/* ═══════════════════════════════════════════════════════════════════════════════
+   CINEMATIC SPACE PORTFOLIO — Global Styles
+   Palette: Black #05060A, Navy #0A0E1A, Amber #FF8C42→#FFB25E, Blue #5FA8D3/#A9D6E5
+   Typography: Space Grotesk (headings) + Inter (body)
+   ═══════════════════════════════════════════════════════════════════════════════ */
+
+/* ── Custom Properties ─────────────────────────────────────────────────────── */
+:root {
+  --c-black: #05060A;
+  --c-navy: #0A0E1A;
+  --c-surface: #0D1117;
+  --c-amber: #FF8C42;
+  --c-amber-light: #FFB25E;
+  --c-blue: #5FA8D3;
+  --c-blue-light: #A9D6E5;
+  --c-text: #F5F5F0;
+  --c-text-muted: #8B8F9A;
+  --c-border: rgba(255, 255, 255, 0.06);
+  --c-glass: rgba(13, 17, 23, 0.6);
+  --c-glass-border: rgba(255, 255, 255, 0.08);
+  --font-display: 'Space Grotesk', sans-serif;
+  --font-body: 'Inter', sans-serif;
+}
+
+/* ── Base ──────────────────────────────────────────────────────────────────── */
 @layer base {
   html {
     scroll-behavior: smooth;
   }
 
   body {
-    @apply bg-gray-950 text-gray-100 antialiased;
+    font-family: var(--font-body);
+    background: var(--c-black);
+    color: var(--c-text);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    letter-spacing: 0.02em;
   }
 
   /* Respect prefers-reduced-motion */
@@ -19,48 +52,229 @@
       scroll-behavior: auto !important;
     }
   }
-
-  /* Light mode overrides */
-  html.light body {
-    @apply bg-gray-50 text-gray-900;
-  }
 }
 
-/* ===== Scrollbar styling ===== */
-::-webkit-scrollbar {
-  width: 8px;
-}
-::-webkit-scrollbar-track {
-  @apply bg-gray-900;
-}
-::-webkit-scrollbar-thumb {
-  @apply bg-gray-600 rounded-full;
-}
-html.light ::-webkit-scrollbar-track {
-  @apply bg-gray-200;
-}
+/* ── Scrollbar ─────────────────────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--c-black); }
+::-webkit-scrollbar-thumb { background: rgba(255, 140, 66, 0.25); border-radius: 999px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(255, 140, 66, 0.45); }
 
-/* ===== Canvas background ===== */
+/* ── Canvas Background ─────────────────────────────────────────────────────── */
 #canvas-bg {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
   z-index: 0;
   pointer-events: none;
 }
 
-/* ===== Gradient text utility ===== */
-.gradient-text {
-  @apply bg-clip-text text-transparent;
-  background-image: linear-gradient(135deg, #6366f1 0%, #a855f7 50%, #ec4899 100%);
+/* ── Glassmorphic Card ─────────────────────────────────────────────────────── */
+.glass-card {
+  background: var(--c-glass);
+  border: 1px solid var(--c-glass-border);
+  border-radius: 16px;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition: border-color 0.4s ease, box-shadow 0.4s ease, transform 0.3s ease;
 }
 
-/* ===== Glass morphism card ===== */
-.glass-card {
-  @apply bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl;
+.glass-card:hover {
+  border-color: rgba(95, 168, 211, 0.2);
+  box-shadow:
+    0 0 20px rgba(95, 168, 211, 0.06),
+    0 0 60px rgba(95, 168, 211, 0.03),
+    0 8px 32px rgba(0, 0, 0, 0.3);
 }
-html.light .glass-card {
-  @apply bg-white/70 border-gray-200;
+
+.glass-card-warm:hover {
+  border-color: rgba(255, 140, 66, 0.2);
+  box-shadow:
+    0 0 20px rgba(255, 140, 66, 0.08),
+    0 0 60px rgba(255, 140, 66, 0.04),
+    0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+/* ── Gradient Text ─────────────────────────────────────────────────────────── */
+.gradient-text {
+  background: linear-gradient(135deg, var(--c-amber) 0%, var(--c-amber-light) 50%, var(--c-blue-light) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-text-cool {
+  background: linear-gradient(135deg, var(--c-blue) 0%, var(--c-blue-light) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ── Section Title (mission-control style) ─────────────────────────────────── */
+.section-label {
+  font-family: var(--font-display);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--c-text-muted);
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-wrap: balance;
+}
+
+/* ── Orbital Dot (section markers) ─────────────────────────────────────────── */
+.orbital-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--c-amber);
+  box-shadow: 0 0 12px rgba(255, 140, 66, 0.5), 0 0 30px rgba(255, 140, 66, 0.2);
+  position: relative;
+}
+
+.orbital-dot::after {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 140, 66, 0.2);
+  animation: pulse-ring 3s ease-in-out infinite;
+}
+
+/* ── CTA Button ────────────────────────────────────────────────────────────── */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 32px;
+  font-family: var(--font-display);
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--c-black);
+  background: linear-gradient(135deg, var(--c-amber) 0%, var(--c-amber-light) 100%);
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 20px rgba(255, 140, 66, 0.25), 0 4px 16px rgba(0, 0, 0, 0.3);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 30px rgba(255, 140, 66, 0.4), 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 32px;
+  font-family: var(--font-display);
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--c-text-muted);
+  background: transparent;
+  border: 1px solid var(--c-glass-border);
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+  color: var(--c-text);
+  border-color: rgba(95, 168, 211, 0.3);
+  background: rgba(95, 168, 211, 0.05);
+}
+
+/* ── Input Fields ──────────────────────────────────────────────────────────── */
+.input-field {
+  width: 100%;
+  padding: 14px 18px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--c-glass-border);
+  border-radius: 12px;
+  color: var(--c-text);
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  outline: none;
+}
+
+.input-field::placeholder { color: rgba(139, 143, 154, 0.5); }
+
+.input-field:focus {
+  border-color: rgba(255, 140, 66, 0.4);
+  box-shadow: 0 0 0 3px rgba(255, 140, 66, 0.08);
+}
+
+/* ── Animations ────────────────────────────────────────────────────────────── */
+@keyframes pulse-ring {
+  0%, 100% { transform: scale(1); opacity: 0.4; }
+  50% { transform: scale(1.5); opacity: 0; }
+}
+
+@keyframes float-gentle {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+@keyframes glow-breathe {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 0.8; }
+}
+
+@keyframes orbit-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes orbit-spin-reverse {
+  from { transform: rotate(360deg); }
+  to { transform: rotate(0deg); }
+}
+
+@keyframes slide-in-up {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Tag / Badge ───────────────────────────────────────────────────────────── */
+.tech-tag {
+  display: inline-block;
+  padding: 4px 12px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--c-blue);
+  background: rgba(95, 168, 211, 0.08);
+  border: 1px solid rgba(95, 168, 211, 0.15);
+  border-radius: 999px;
+  transition: all 0.3s ease;
+}
+
+.tech-tag:hover {
+  background: rgba(95, 168, 211, 0.15);
+  border-color: rgba(95, 168, 211, 0.3);
+}
+
+/* ── Nav link label style (HUD / mission-control) ──────────────────────────── */
+.nav-label {
+  font-family: var(--font-display);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--c-text-muted);
+  transition: color 0.3s ease;
+}
+
+.nav-label:hover {
+  color: var(--c-text);
 }

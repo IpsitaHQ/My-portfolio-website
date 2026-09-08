@@ -1,0 +1,249 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450">
+  <defs>
+    <linearGradient id="bg2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#050810"/>
+      <stop offset="50%" stop-color="#0D0A20"/>
+      <stop offset="100%" stop-color="#0A0E1A"/>
+    </linearGradient>
+    <linearGradient id="purple" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#A855F7"/>
+      <stop offset="100%" stop-color="#7C3AED"/>
+    </linearGradient>
+    <linearGradient id="neon2" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#C084FC"/>
+      <stop offset="100%" stop-color="#A855F7"/>
+    </linearGradient>
+    <linearGradient id="screen2" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1A1035"/>
+      <stop offset="100%" stop-color="#0D0720"/>
+    </linearGradient>
+    <filter id="glow2">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="softglow2">
+      <feGaussianBlur stdDeviation="10" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="bigglow2">
+      <feGaussianBlur stdDeviation="25" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="450" fill="url(#bg2)"/>
+
+  <!-- Grid -->
+  <g opacity="0.03" stroke="#A855F7" stroke-width="0.5">
+    <line x1="0" y1="60" x2="800" y2="60"/><line x1="0" y1="120" x2="800" y2="120"/>
+    <line x1="0" y1="180" x2="800" y2="180"/><line x1="0" y1="240" x2="800" y2="240"/>
+    <line x1="0" y1="300" x2="800" y2="300"/><line x1="0" y1="360" x2="800" y2="360"/>
+    <line x1="120" y1="0" x2="120" y2="450"/><line x1="240" y1="0" x2="240" y2="450"/>
+    <line x1="360" y1="0" x2="360" y2="450"/><line x1="480" y1="0" x2="480" y2="450"/>
+    <line x1="600" y1="0" x2="600" y2="450"/><line x1="720" y1="0" x2="720" y2="450"/>
+  </g>
+
+  <!-- Circuit traces -->
+  <g stroke="#A855F7" stroke-width="0.5" fill="none" opacity="0.1">
+    <path d="M 0,180 L 100,180 L 120,160 L 200,160 L 220,180 L 300,180"/>
+    <path d="M 500,300 L 580,300 L 600,280 L 680,280 L 700,300 L 800,300"/>
+    <path d="M 0,350 L 60,350 L 80,330 L 140,330 L 160,350 L 250,350"/>
+    <circle cx="120" cy="160" r="2" fill="#A855F7"/>
+    <circle cx="220" cy="180" r="2" fill="#A855F7"/>
+    <circle cx="600" cy="280" r="2" fill="#A855F7"/>
+  </g>
+
+  <!-- Floating code snippets -->
+  <g font-family="monospace" font-size="8" fill="#C084FC" opacity="0.12">
+    <text x="30" y="70">nlp.parse(command)</text>
+    <text x="40" y="100">intent = classify()</text>
+    <text x="25" y="380">datetime.extract(text)</text>
+    <text x="580" y="70">session.tasks = []</text>
+    <text x="600" y="400">regex.findall(pattern)</text>
+  </g>
+
+  <!-- === AI BRAIN ROBOT (center) === -->
+  <g transform="translate(280, 60)">
+    <!-- Brain glow -->
+    <ellipse cx="120" cy="130" rx="90" ry="80" fill="#A855F7" opacity="0.05" filter="url(#bigglow2)"/>
+
+    <!-- Neck -->
+    <rect x="105" y="230" width="30" height="25" rx="3" fill="#1E293B" stroke="#334155" stroke-width="1"/>
+    <line x1="112" y1="235" x2="112" y2="250" stroke="#A855F7" stroke-width="0.5" opacity="0.4"/>
+    <line x1="120" y1="235" x2="120" y2="250" stroke="#A855F7" stroke-width="0.5" opacity="0.4"/>
+    <line x1="128" y1="235" x2="128" y2="250" stroke="#A855F7" stroke-width="0.5" opacity="0.4"/>
+
+    <!-- Shoulders -->
+    <rect x="85" y="250" width="70" height="12" rx="5" fill="#1E293B" stroke="#334155" stroke-width="0.8"/>
+
+    <!-- Head - rounded brain shape -->
+    <ellipse cx="120" cy="110" rx="75" ry="85" fill="#111328" stroke="#2D2555" stroke-width="1.5"/>
+    <ellipse cx="120" cy="110" rx="65" ry="75" fill="#0A0D1F" stroke="#1E1845" stroke-width="0.5"/>
+
+    <!-- Brain circuit pattern -->
+    <g stroke="#A855F7" stroke-width="0.8" fill="none" opacity="0.35">
+      <!-- Left hemisphere -->
+      <path d="M 80,70 Q 70,110 80,150 Q 90,170 100,160"/>
+      <path d="M 75,90 L 90,85 L 100,95 L 110,90"/>
+      <path d="M 70,120 Q 85,130 75,145"/>
+      <path d="M 90,100 Q 95,115 88,130"/>
+      <!-- Right hemisphere -->
+      <path d="M 160,70 Q 170,110 160,150 Q 150,170 140,160"/>
+      <path d="M 165,90 L 150,85 L 140,95 L 130,90"/>
+      <path d="M 170,120 Q 155,130 165,145"/>
+      <path d="M 150,100 Q 145,115 152,130"/>
+      <!-- Center line -->
+      <line x1="120" y1="40" x2="120" y2="180" opacity="0.2"/>
+      <!-- Cross connections -->
+      <line x1="90" y1="100" x2="150" y2="100" opacity="0.15"/>
+      <line x1="85" y1="130" x2="155" y2="130" opacity="0.15"/>
+    </g>
+
+    <!-- Brain activity nodes -->
+    <g filter="url(#glow2)">
+      <circle cx="85" cy="85" r="3" fill="#C084FC" opacity="0.7"/>
+      <circle cx="155" cy="85" r="3" fill="#C084FC" opacity="0.7"/>
+      <circle cx="75" cy="120" r="2.5" fill="#A855F7" opacity="0.6"/>
+      <circle cx="165" cy="120" r="2.5" fill="#A855F7" opacity="0.6"/>
+      <circle cx="120" cy="60" r="3.5" fill="#C084FC" opacity="0.8"/>
+      <circle cx="100" cy="145" r="2" fill="#A855F7" opacity="0.5"/>
+      <circle cx="140" cy="145" r="2" fill="#A855F7" opacity="0.5"/>
+      <circle cx="95" cy="105" r="2" fill="#7C3AED" opacity="0.4"/>
+      <circle cx="145" cy="105" r="2" fill="#7C3AED" opacity="0.4"/>
+    </g>
+
+    <!-- Eyes - LED screens -->
+    <ellipse cx="95" cy="120" rx="12" ry="8" fill="#05030D" stroke="#2D2555" stroke-width="1"/>
+    <ellipse cx="95" cy="120" rx="8" ry="5" fill="#150D30" stroke="#A855F7" stroke-width="0.5" opacity="0.6"/>
+    <text x="89" y="123" font-family="monospace" font-size="6" fill="#C084FC" opacity="0.9">AI</text>
+
+    <ellipse cx="145" cy="120" rx="12" ry="8" fill="#05030D" stroke="#2D2555" stroke-width="1"/>
+    <ellipse cx="145" cy="120" rx="8" ry="5" fill="#150D30" stroke="#A855F7" stroke-width="0.5" opacity="0.6"/>
+    <text x="139" y="123" font-family="monospace" font-size="6" fill="#C084FC" opacity="0.9">NLP</text>
+
+    <!-- Mouth display -->
+    <rect x="100" y="155" width="40" height="14" rx="3" fill="#05030D" stroke="#2D2555" stroke-width="0.5"/>
+    <text x="104" y="165" font-family="monospace" font-size="6" fill="#A855F7" opacity="0.8">READY_</text>
+
+    <!-- Ear/side modules -->
+    <rect x="40" y="95" width="10" height="30" rx="3" fill="#1E293B" stroke="#2D2555" stroke-width="0.5"/>
+    <circle cx="45" cy="105" r="2" fill="#A855F7" opacity="0.5"/>
+    <circle cx="45" cy="115" r="2" fill="#7C3AED" opacity="0.5"/>
+    <rect x="190" y="95" width="10" height="30" rx="3" fill="#1E293B" stroke="#2D2555" stroke-width="0.5"/>
+    <circle cx="195" cy="105" r="2" fill="#A855F7" opacity="0.5"/>
+    <circle cx="195" cy="115" r="2" fill="#7C3AED" opacity="0.5"/>
+  </g>
+
+  <!-- Chat interface (left side) -->
+  <g transform="translate(40, 140)">
+    <!-- Chat window -->
+    <rect x="0" y="0" width="200" height="180" rx="10" fill="#0D0F1A" stroke="#2D2555" stroke-width="1" opacity="0.9"/>
+    <rect x="0" y="0" width="200" height="24" rx="10" fill="#15102A"/>
+    <text x="10" y="16" font-family="sans-serif" font-size="9" fill="#8B8F9A" font-weight="500">💬 Chat Interface</text>
+
+    <!-- User message -->
+    <g transform="translate(12, 35)">
+      <rect x="0" y="0" width="160" height="28" rx="6" fill="#1A1035" stroke="#334155" stroke-width="0.5"/>
+      <text x="10" y="12" font-family="sans-serif" font-size="8" fill="#C084FC">🧑 You</text>
+      <text x="10" y="23" font-family="sans-serif" font-size="7.5" fill="#F5F5F0" opacity="0.8">"Schedule meeting at 3pm"</text>
+    </g>
+
+    <!-- AI response -->
+    <g transform="translate(12, 75)">
+      <rect x="30" y="0" width="155" height="28" rx="6" fill="#150D30" stroke="#A855F7" stroke-width="0.5" opacity="0.6"/>
+      <text x="40" y="12" font-family="sans-serif" font-size="8" fill="#A855F7">🤖 Agent</text>
+      <text x="40" y="23" font-family="sans-serif" font-size="7.5" fill="#F5F5F0" opacity="0.8">✓ Meeting created: 3:00 PM</text>
+    </g>
+
+    <!-- User message 2 -->
+    <g transform="translate(12, 115)">
+      <rect x="0" y="0" width="160" height="28" rx="6" fill="#1A1035" stroke="#334155" stroke-width="0.5"/>
+      <text x="10" y="12" font-family="sans-serif" font-size="8" fill="#C084FC">🧑 You</text>
+      <text x="10" y="23" font-family="sans-serif" font-size="7.5" fill="#F5F5F0" opacity="0.8">"Remind me to call mom"</text>
+    </g>
+
+    <!-- AI response 2 -->
+    <g transform="translate(12, 150)">
+      <rect x="30" y="0" width="155" height="18" rx="6" fill="#150D30" stroke="#A855F7" stroke-width="0.5" opacity="0.5"/>
+      <text x="40" y="12" font-family="monospace" font-size="7" fill="#C084FC" opacity="0.8">✓ Reminder set ✓</text>
+    </g>
+  </g>
+
+  <!-- Task list (right side) -->
+  <g transform="translate(560, 100)">
+    <!-- Task panel -->
+    <rect x="0" y="0" width="210" height="250" rx="10" fill="#0D0F1A" stroke="#2D2555" stroke-width="1" opacity="0.9"/>
+    <rect x="0" y="0" width="210" height="24" rx="10" fill="#15102A"/>
+    <text x="10" y="16" font-family="sans-serif" font-size="9" fill="#8B8F9A" font-weight="500">📋 Active Tasks</text>
+
+    <!-- Task items -->
+    <g transform="translate(12, 35)">
+      <!-- Task 1 - completed -->
+      <rect x="0" y="0" width="186" height="30" rx="5" fill="#111827" stroke="#1E3A20" stroke-width="0.5"/>
+      <rect x="6" y="8" width="14" height="14" rx="3" fill="#0D2818" stroke="#22C55E" stroke-width="0.8"/>
+      <text x="9" y="19" font-family="monospace" font-size="8" fill="#22C55E">✓</text>
+      <text x="28" y="14" font-family="sans-serif" font-size="8" fill="#F5F5F0" opacity="0.5" text-decoration="line-through">Schedule meeting</text>
+      <text x="28" y="24" font-family="monospace" font-size="6" fill="#22C55E" opacity="0.6">3:00 PM today</text>
+
+      <!-- Task 2 - completed -->
+      <rect x="0" y="38" width="186" height="30" rx="5" fill="#111827" stroke="#1E3A20" stroke-width="0.5"/>
+      <rect x="6" y="46" width="14" height="14" rx="3" fill="#0D2818" stroke="#22C55E" stroke-width="0.8"/>
+      <text x="9" y="57" font-family="monospace" font-size="8" fill="#22C55E">✓</text>
+      <text x="28" y="52" font-family="sans-serif" font-size="8" fill="#F5F5F0" opacity="0.5" text-decoration="line-through">Set reminder: call mom</text>
+      <text x="28" y="62" font-family="monospace" font-size="6" fill="#22C55E" opacity="0.6">tomorrow 10 AM</text>
+
+      <!-- Task 3 - pending -->
+      <rect x="0" y="76" width="186" height="30" rx="5" fill="#111827" stroke="#334155" stroke-width="0.5"/>
+      <rect x="6" y="84" width="14" height="14" rx="3" fill="#0A0E1A" stroke="#A855F7" stroke-width="0.8"/>
+      <text x="28" y="92" font-family="sans-serif" font-size="8" fill="#F5F5F0" opacity="0.7">Review PR #42</text>
+      <text x="28" y="102" font-family="monospace" font-size="6" fill="#A855F7" opacity="0.6">due: Friday</text>
+
+      <!-- Task 4 - pending -->
+      <rect x="0" y="114" width="186" height="30" rx="5" fill="#111827" stroke="#334155" stroke-width="0.5"/>
+      <rect x="6" y="122" width="14" height="14" rx="3" fill="#0A0E1A" stroke="#FF8C42" stroke-width="0.8"/>
+      <text x="28" y="130" font-family="sans-serif" font-size="8" fill="#F5F5F0" opacity="0.7">Deploy v2.1</text>
+      <text x="28" y="140" font-family="monospace" font-size="6" fill="#FF8C42" opacity="0.6">high priority</text>
+
+      <!-- Task 5 -->
+      <rect x="0" y="152" width="186" height="30" rx="5" fill="#111827" stroke="#334155" stroke-width="0.5"/>
+      <rect x="6" y="160" width="14" height="14" rx="3" fill="#0A0E1A" stroke="#A855F7" stroke-width="0.8"/>
+      <text x="28" y="168" font-family="sans-serif" font-size="8" fill="#F5F5F0" opacity="0.7">Team standup</text>
+      <text x="28" y="178" font-family="monospace" font-size="6" fill="#A855F7" opacity="0.6">9:30 AM daily</text>
+    </g>
+
+    <!-- Progress bar -->
+    <g transform="translate(12, 220)">
+      <text x="0" y="0" font-family="monospace" font-size="7" fill="#8B8F9A">Progress: 2/5 complete</text>
+      <rect x="0" y="5" width="186" height="4" rx="2" fill="#1E293B"/>
+      <rect x="0" y="5" width="74" height="4" rx="2" fill="url(#purple)" opacity="0.8"/>
+    </g>
+  </g>
+
+  <!-- Connection lines: brain → chat & task list -->
+  <g stroke="#A855F7" stroke-width="0.8" opacity="0.2" stroke-dasharray="3,3">
+    <path d="M 320,200 Q 270,200 240,230" fill="none"/>
+    <path d="M 400,200 Q 450,200 560,230" fill="none"/>
+  </g>
+
+  <!-- Neural activity particles -->
+  <g filter="url(#glow2)">
+    <circle cx="300" cy="310" r="2" fill="#A855F7" opacity="0.5"/>
+    <circle cx="350" cy="340" r="1.5" fill="#C084FC" opacity="0.4"/>
+    <circle cx="400" cy="320" r="2" fill="#7C3AED" opacity="0.4"/>
+    <circle cx="440" cy="350" r="1.5" fill="#A855F7" opacity="0.5"/>
+    <circle cx="500" cy="330" r="1.8" fill="#C084FC" opacity="0.3"/>
+    <circle cx="380" cy="370" r="1.2" fill="#7C3AED" opacity="0.4"/>
+  </g>
+
+  <!-- Bottom bar -->
+  <rect x="0" y="420" width="800" height="30" fill="#0A0E1A" opacity="0.6"/>
+  <g font-family="monospace" font-size="8" fill="#A855F7" opacity="0.2">
+    <text x="20" y="438">intent_classification</text>
+    <text x="170" y="438">datetime_extraction</text>
+    <text x="330" y="438">regex_patterns</text>
+    <text x="470" y="438">session_persistence</text>
+    <text x="640" y="438">streamlit_chat</text>
+  </g>
+  <rect x="0" y="448" width="800" height="2" fill="url(#neon2)" opacity="0.3"/>
+</svg>
